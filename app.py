@@ -7,7 +7,64 @@ import string
 import nltk
 import joblib as jb
 import warnings
+
+st.set_page_config(page_title="Twitter Sentiment Analysis", page_icon="🕊")
+st.title("Twitter Sentimental Analysis")
 warnings.filterwarnings("ignore")
+
+container="""
+<style>
+[data-baseweb="base-input"]{
+margin-top: 40px; 
+margin-bottom: 40px; 
+}
+</style>
+"""
+st.markdown(container,unsafe_allow_html=True)
+
+red="""
+<style>
+[data-testid="stAppViewContainer"]{
+background-color:#FF0000;
+color: #ffffff;
+}
+[data-testid="stMarkdownContainer"]{
+color: #ffffff;
+}
+[class="css-zt5igj e16nr0p33"]{
+color: #ffffff;
+}
+</style>
+"""
+blue="""
+<style>
+[data-testid="stAppViewContainer"]{
+background-color:#2B65EC;
+color: #ffffff;
+}
+[data-testid="stMarkdownContainer"]{
+color: #ffffff;
+}
+[class="css-zt5igj e16nr0p33"]{
+color: #ffffff;
+}
+</style>
+"""
+green="""
+<style>
+[data-testid="stAppViewContainer"]{
+background-color:#008000;
+color: #ffffff;
+}
+[data-testid="stMarkdownContainer"]{
+color: #ffffff;
+}
+[class="css-zt5igj e16nr0p33"]{
+color: #ffffff;
+}
+</style>
+"""
+
 tsa = jb.load('tsa.joblib')
 model = tsa['model']
 bow_vectorizer = tsa['bow_vectorizer']
@@ -30,9 +87,14 @@ for i in range(len(tokenized_tweet)):
 df['clean_tweet']=tokenized_tweet
 bow = bow_vectorizer.transform(df['clean_tweet'])
 pred = model.predict(bow)
-if pred==1:
-    st.write("Positive Tweet")
+if input_tweet=="":
+    pass
+elif pred==1:
+    st.write("### This is a Positive Tweet")
+    st.markdown(green, unsafe_allow_html=True)
 elif pred==0:
-    st.write("Neutral Tweet")
+    st.write("### This is a Neutral Tweet")
+    st.markdown(blue, unsafe_allow_html=True)
 elif pred==-1:
-    st.write("Negative Tweet")
+    st.write("### This is a Negative Tweet")
+    st.markdown(red, unsafe_allow_html=True)
