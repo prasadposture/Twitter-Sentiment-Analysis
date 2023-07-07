@@ -1,4 +1,4 @@
-<h1>Twitter Sentiment Analysis</h1>
+<h1 align="center">Twitter Sentiment Analysis</h1>
 ### Introduction
 This project uses machine learning algorithms to classify tweets based on sentiment.
 By analyzing the text of tweets, we can identify patterns that help us predict the sentiment of future tweets.
@@ -8,7 +8,7 @@ our project can help you achieve your goals. Here I have used Natural Language T
 I have achieved 79.78% accuracy.
 
 ### Important Links
-[1. Web Application](https://twitter-sentiment-analysis.streamlit.app/)
+[1. Web Application](https://twitter-sentiment-analysis.streamlit.app/)<br>
 [2. Data Preprocessing and Predictive Modeling](https://github.com/prasadposture/Twitter-Sentiment-Analysis/blob/main/Twitter-Sentiment-Analysis-using-DTC.ipynb)
 
 ### Workflow
