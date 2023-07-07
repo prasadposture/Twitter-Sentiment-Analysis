@@ -1,3 +1,4 @@
+# Summurizing the processes which could be used for web application
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -7,7 +8,10 @@ import nltk
 import joblib as jb
 import warnings
 warnings.filterwarnings("ignore")
-input_tweet=st.text_input('Enter the tweet')
+tsa = jb.load('tsa.joblib')
+model = tsa['model']
+bow_vectorizer = tsa['bow_vectorizer']
+input_tweet= st.text_input("Enter the tweet here")
 df = pd.DataFrame([{'tweet':input_tweet}])
 def remove_pattern(input_txt, pattern):
     r = re.findall(pattern, input_txt)
@@ -24,12 +28,11 @@ tokenized_tweet = tokenized_tweet.apply(lambda sentence: [stemmer.stem(word) for
 for i in range(len(tokenized_tweet)):
     tokenized_tweet[i]=" ".join(tokenized_tweet[i])
 df['clean_tweet']=tokenized_tweet
-tsa = jb.load('tsa.joblib')
-model = tsa['model']
-bow_vectorizer = tsa['bow_vectorizer']
 bow = bow_vectorizer.transform(df['clean_tweet'])
 pred = model.predict(bow)
-if pred==0:
-    st.write("the tweet is positive")
-else:
-    st.write("the tweet is negative")
+if pred==1:
+    st.write("Positive Tweet")
+elif pred==0:
+    st.write("Neutral Tweet")
+elif pred==-1:
+    st.write("Negative Tweet")
