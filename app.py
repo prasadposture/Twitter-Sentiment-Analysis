@@ -98,7 +98,11 @@ elif pred==0:
 elif pred==-1:
     st.write("### This is a Negative Tweet")
     st.markdown(red, unsafe_allow_html=True)
-st.write("\n\n\n\n\n\n")
+
+
+
+
+
 with st.container():
     left, middle, right = st.columns(3)
     with left:
