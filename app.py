@@ -9,7 +9,7 @@ import joblib as jb
 import warnings
 
 st.set_page_config(page_title="Twitter Sentiment Analysis", page_icon="🕊")
-st.title("Twitter Sentimental Analysis")
+st.title("Twitter Sentiment Analysis")
 warnings.filterwarnings("ignore")
 
 container="""
