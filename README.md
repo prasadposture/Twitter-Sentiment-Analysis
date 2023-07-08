@@ -1,4 +1,5 @@
 <h1 align="center">Twitter Sentiment Analysis</h1>
+
 ### Introduction
 This project uses machine learning algorithms to classify tweets based on sentiment.
 By analyzing the text of tweets, we can identify patterns that help us predict the sentiment of future tweets.
