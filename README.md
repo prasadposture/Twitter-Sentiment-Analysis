@@ -19,5 +19,5 @@ I have achieved 79.78% accuracy.
 4. Feature extraction using CountVectorizer
 5. Predictive modeling with Hyperparameter tuning
 6. Saving the model
-7. Summarzing the processes
+7. Summarzing the processes in the single cell
 8. Building a web application using saved models and summarized code
